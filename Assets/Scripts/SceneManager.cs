@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class SceneMng : MonoBehaviour
+public class SceneManager : MonoBehaviour
 {
     public void LoadScene(string name)
     {
-        SceneManager.LoadScene(name);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(name);
     }
 
 
