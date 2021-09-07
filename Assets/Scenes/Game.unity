@@ -301,7 +301,7 @@ Animator:
   m_GameObject: {fileID: 141542894}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b1f52085574994d45992f8d5ac34669f, type: 2}
+  m_Controller: {fileID: 9100000, guid: f7c306a55109d0449b9cc555d93b8737, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -319,13 +319,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 141542894}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2453a59300bc9c84cb269ae2cd5b828c, type: 3}
+  m_Script: {fileID: 11500000, guid: af4a3a35f3cdd3e44af3dbaeb4d2125e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LerpSpeed: 5
-  X: 0.08
-  LeftAnimation: LeftTurn
-  RightAnimation: RightTurn
+--- !u!114 &141542897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141542894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76f7945ea1aaad1449828ef7ba99555a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Input: {fileID: 141542896}
+  Movement: {fileID: 141542898}
+--- !u!114 &141542898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141542894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4ea2c862cc53f341a9090b253958b6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1052132442
 GameObject:
   m_ObjectHideFlags: 0
