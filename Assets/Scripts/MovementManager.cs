@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 
 public enum Side
@@ -16,7 +14,7 @@ public class MovementManager : MonoBehaviour
     // X axis update
     internal float newX;
     internal  float X;
-    
+
     //Lerp
     internal float lerpX;
     internal  float LerpSpeed;
@@ -67,5 +65,11 @@ public class MovementManager : MonoBehaviour
         }
         lerpX = Mathf.Lerp(lerpX, newX, Time.deltaTime * LerpSpeed);
         go.transform.position = new Vector3(lerpX, go.transform.position.y, go.transform.position.z);
+    }
+
+    internal void Translation(GameObject go, float x, float y, float z)
+    {
+        gameObject.transform.position = new Vector3(x, y, z);
+        go.transform.Translate(go.transform.position);
     }
 }

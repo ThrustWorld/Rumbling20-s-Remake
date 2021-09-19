@@ -15,7 +15,6 @@ public class Player : MonoBehaviour
     //Player properties
     Animator animator;
 
-
     private void Awake()
     {
         animator = gameObject.GetComponent<Animator>();
@@ -28,9 +27,9 @@ public class Player : MonoBehaviour
         Input.delay = 1.2f;
         // Player's values for Movement properties
         Movement.side = Side.Mid;
-        Movement.newX = 0f;
         Movement.LerpSpeed = 2f;
         Movement.X = 0.08f;
+        Movement.newX = 0;
     }
 
     // Update is called once per frame
