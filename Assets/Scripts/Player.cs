@@ -27,8 +27,8 @@ public class Player : MonoBehaviour
         Input.delay = 1.2f;
         // Player's values for Movement properties
         Movement.side = Side.Mid;
-        Movement.LerpSpeed = 2f;
-        Movement.X = 0.08f;
+        Movement.lerpSpeed = 2f;
+        Movement.x = 0.08f;
         Movement.newX = 0;
     }
 
@@ -41,4 +41,5 @@ public class Player : MonoBehaviour
         Movement.MoveLeft(Input,gameObject,animator,"LeftTurn");
         Movement.MoveRight(Input, gameObject, animator, "RightTurn");
     }
+    
 }

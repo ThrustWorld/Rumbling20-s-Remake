@@ -4,59 +4,24 @@ using UnityEngine;
 
 public class Building : MonoBehaviour
 {
+    //References
+    [SerializeField]
+    internal Scroll scroll;
+    
     public List<GameObject> Buildings;
 
-
-    // speed >= maxSpeed ? speed = maxSpeed : speed *= speedMultiplier
-    private float speed;
-    private float maxSpeed;
-    private float speedMultiplier;
-
-    // Increase difficulty each tot seconds
-    private float counter;
-
-    private float outOfScreen;
-
-    // Update is called once per frame
     private void Start()
     {
-        speedMultiplier = 0.2f;
-        speed = speedMultiplier;
-        maxSpeed = 8f;
-        counter = 0f;
-        outOfScreen = -5f;
+        scroll.speedMultiplier = 0.5f;
+        scroll.speed = 1.5f;
+        scroll.maxSpeed = 8f;
+        scroll.counter = 0f;
+        scroll.outOfScreen = -5f;
+        scroll.newZ = 8f;
     }
     
     void Update()
     {
-        Scroll();
-    }
-
-    private void ScrollSpeed()
-    {
-        counter += Time.deltaTime;
-        if(counter > 4)
-        {
-            speed += speedMultiplier;
-            counter = 0;
-            if(speed >= maxSpeed)
-            {
-                speed = maxSpeed;
-            }
-        }
-    }
-
-    private void Scroll()
-    {
-        ScrollSpeed();
-        for (int i = 0; i < Buildings.Count; i++)
-        {
-            if(Buildings[i].transform.position.z <= outOfScreen)
-            {
-                Buildings[i].transform.position = Buildings[i].transform.position + new Vector3 (0f,0f,8f);
-            }
-           
-            Buildings[i].transform.position -= new Vector3(0f,0f,speed) * Time.deltaTime;
-        }
+        scroll.ScrollUpdate(Buildings);
     }
 }

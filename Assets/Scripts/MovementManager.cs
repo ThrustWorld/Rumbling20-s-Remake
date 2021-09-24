@@ -13,11 +13,11 @@ public class MovementManager : MonoBehaviour
 
     // X axis update
     internal float newX;
-    internal  float X;
+    internal  float x;
 
     //Lerp
     internal float lerpX;
-    internal  float LerpSpeed;
+    internal  float lerpSpeed;
 
     internal void MoveLeft(InputManager input, GameObject go, Animator animator, string name)
     {
@@ -34,12 +34,12 @@ public class MovementManager : MonoBehaviour
             }
             else if (side == Side.Mid)
             {
-                newX = X * -1f; // towards left(left side)
+                newX = x * -1f; // towards left(left side)
                 animator.Play(name);
                 side = Side.Left;
             }
         }
-        lerpX = Mathf.Lerp(lerpX, newX, Time.deltaTime * LerpSpeed);
+        lerpX = Mathf.Lerp(lerpX, newX, Time.deltaTime * lerpSpeed);
         go.transform.position = new Vector3(lerpX, go.transform.position.y, go.transform.position.z);
     }
 
@@ -58,18 +58,12 @@ public class MovementManager : MonoBehaviour
             }
             else if (side == Side.Mid)
             {
-                newX = X * 1f; // towards right(right side)
+                newX = x * 1f; // towards right(right side)
                 animator.Play(name);
                 side = Side.Right;
             }
         }
-        lerpX = Mathf.Lerp(lerpX, newX, Time.deltaTime * LerpSpeed);
+        lerpX = Mathf.Lerp(lerpX, newX, Time.deltaTime * lerpSpeed);
         go.transform.position = new Vector3(lerpX, go.transform.position.y, go.transform.position.z);
-    }
-
-    internal void Translation(GameObject go, float x, float y, float z)
-    {
-        gameObject.transform.position = new Vector3(x, y, z);
-        go.transform.Translate(go.transform.position);
     }
 }
