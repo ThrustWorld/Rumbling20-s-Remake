@@ -11,9 +11,11 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     internal MovementManager Movement;
-   
+
     //Player properties
-    Animator animator;
+    private Animator animator;
+
+    private int hp;
 
     private void Awake()
     {
@@ -30,6 +32,8 @@ public class Player : MonoBehaviour
         Movement.lerpSpeed = 2f;
         Movement.x = 0.08f;
         Movement.newX = 0;
+        //Player prop
+        hp = 3;
     }
 
     // Update is called once per frame
@@ -40,6 +44,29 @@ public class Player : MonoBehaviour
         // Movement Update
         Movement.MoveLeft(Input,gameObject,animator,"LeftTurn");
         Movement.MoveRight(Input, gameObject, animator, "RightTurn");
+        Debug.Log(hp);
     }
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Hole" && gameObject.tag == "Player")
+        {
+            if(hp > 0)
+            {
+                hp--;
+            }
+            Destroy(other.gameObject);
+        }
+        else if (other.gameObject.tag == "PowerUp" && gameObject.tag == "Player")
+        {
+            if (hp < 3)
+            {
+                hp++;
+            }
+            Destroy(other.gameObject);
+        }
+        else if(other.gameObject.tag == "EnemyCar" && gameObject.tag == "Player")
+        {
+            Time.timeScale = 0f;
+        }
+    }
 }

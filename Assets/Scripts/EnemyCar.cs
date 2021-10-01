@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class EnemyCar : MonoBehaviour
 {
-    float speed;
-    float outOfScreen;
-    float pastTime;
+    private float speed;
+    private float outOfScreen;
+    private float pastTime;
     // Start is called before the first frame update
     void Start()
     {

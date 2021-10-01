@@ -5,18 +5,20 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public Transform[] Obstacles;
-    public int Min;
-    public int Max;
+    [SerializeField]
+    private Transform[] Obstacles;
+    [SerializeField]
+    private int Min;
+    [SerializeField]
+    private int Max;
 
-
-    int item;
+    private int item;
     private void Start()
     {
-        StartCoroutine(spawnTimer());   
+        StartCoroutine(SpawnTimer());   
     }
 
-    IEnumerator spawnTimer()
+    IEnumerator SpawnTimer()
     {
         // yield suspends the execution and return the value
         yield return new WaitForSeconds(Random.Range(Min,Max));
@@ -29,7 +31,7 @@ public class SpawnManager : MonoBehaviour
         Instantiate(Obstacles[item], spawnPosition);
 
         //Restart
-        StartCoroutine(spawnTimer());
+        StartCoroutine(SpawnTimer());
     }
 
 

@@ -8,7 +8,8 @@ public class Street : MonoBehaviour
     [SerializeField]
     internal Scroll scroll;
 
-    public List<GameObject> Streets;
+    [SerializeField]
+    private List<GameObject> Streets;
 
     private void Start()
     {

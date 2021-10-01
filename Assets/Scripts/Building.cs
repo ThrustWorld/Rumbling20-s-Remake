@@ -8,7 +8,8 @@ public class Building : MonoBehaviour
     [SerializeField]
     internal Scroll scroll;
     
-    public List<GameObject> Buildings;
+    [SerializeField]
+    private List<GameObject> Buildings;
 
     private void Start()
     {

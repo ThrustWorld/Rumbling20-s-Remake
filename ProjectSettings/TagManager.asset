@@ -4,7 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - PowerUp
+  - Hole
   - Obstacle
+  - EnemyCar
   layers:
   - Default
   - TransparentFX

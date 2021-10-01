@@ -8,7 +8,8 @@ public class Grass : MonoBehaviour
     [SerializeField]
     internal Scroll scroll;
 
-    public List<GameObject> GrassTiles;
+    [SerializeField]
+    private List<GameObject> GrassTiles;
 
     // Start is called before the first frame update
     void Start()
