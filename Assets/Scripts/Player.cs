@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     //Player properties
     private Animator animator;
 
-    private int hp;
+    public static int Hp;
 
     private void Awake()
     {
@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
         Movement.x = 0.08f;
         Movement.newX = 0;
         //Player prop
-        hp = 3;
+        Hp = 3;
     }
 
     // Update is called once per frame
@@ -44,23 +44,25 @@ public class Player : MonoBehaviour
         // Movement Update
         Movement.MoveLeft(Input,gameObject,animator,"LeftTurn");
         Movement.MoveRight(Input, gameObject, animator, "RightTurn");
-        Debug.Log(hp);
+        Debug.Log(Hp);
     }
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Hole" && gameObject.tag == "Player")
         {
-            if(hp > 0)
+            Score.CurrentScore -= 10;
+            if(Hp > 0)
             {
-                hp--;
+                Hp--;
             }
             Destroy(other.gameObject);
         }
         else if (other.gameObject.tag == "PowerUp" && gameObject.tag == "Player")
         {
-            if (hp < 3)
+            Score.CurrentScore += 5;
+            if (Hp < 3)
             {
-                hp++;
+                Hp++;
             }
             Destroy(other.gameObject);
         }
