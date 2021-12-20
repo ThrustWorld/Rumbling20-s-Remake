@@ -23,6 +23,22 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 721663679785959148, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
+      propertyPath: m_Size.z
+      value: 0.14071728
+      objectReference: {fileID: 0}
+    - target: {fileID: 721663679785959148, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
+      propertyPath: m_Center.z
+      value: 0.06587047
+      objectReference: {fileID: 0}
+    - target: {fileID: 721663679785959148, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
+      propertyPath: m_Size.y
+      value: 0.049829625
+      objectReference: {fileID: 0}
+    - target: {fileID: 721663679785959148, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
+      propertyPath: m_Center.y
+      value: 0.02516358
+      objectReference: {fileID: 0}
     - target: {fileID: 2060585042048439879, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

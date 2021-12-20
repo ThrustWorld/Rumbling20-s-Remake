@@ -19,7 +19,7 @@ public class Street : MonoBehaviour
         scroll.maxSpeed = 8f;
         scroll.counter = 0f;
         scroll.outOfScreen = -2f;
-        scroll.newZ = 7f;
+        scroll.newZ = 7.2f;
     }
     
     void Update()
