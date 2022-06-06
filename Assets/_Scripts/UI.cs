@@ -26,7 +26,7 @@ public class UI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        texts[0].text = "x " + Player.Hp;
+        texts[0].text = "x " + OldPlayer.Hp;
         texts[1].text = "Score: " + Score.CurrentScore;
         texts[2].text = "HighScore: " + Score.HighScore;
     }
