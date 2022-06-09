@@ -53,22 +53,19 @@ public class GameManager : Singleton<GameManager>{
     private void HandleStarting()
     {
         //Setup
-
+        LevelGenerator.Instance.Initialize();
         ChangeState(GameState.SpawningObstacles);
     }
 
     private void HandleSpawningObstacles()
     {
         //Spawn Enemies
-
         ChangeState(GameState.Flow);
     }
 
     private void HandleFlow()
     {
         // Flow of the game => Update
-
-
     }
     private void HandleLose()
     {

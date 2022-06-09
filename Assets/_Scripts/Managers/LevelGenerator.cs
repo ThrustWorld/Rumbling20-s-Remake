@@ -12,7 +12,7 @@ public class LevelGenerator : Singleton<LevelGenerator>
     private Vector3 spawnPosition;
     private List<GameObject> tiles;
     // Start is called before the first frame update
-    void Start()
+    public void Initialize()
     {
         tiles = new List<GameObject>();
         
@@ -23,8 +23,11 @@ public class LevelGenerator : Singleton<LevelGenerator>
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
+        if(GameManager.Instance.State != GameState.Flow)
+            return;
+
         if(Input.GetKeyDown(KeyCode.T))
             SpawnGroundTile();
     }

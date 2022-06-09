@@ -5,8 +5,7 @@ using UnityEngine;
 public enum Faction
 {
     Player = 0,
-    PowerUps = 1,
-    Enemies = 2
+    Obstacles = 1
 }
 
 // Easily editable
@@ -15,7 +14,9 @@ public struct Stats
 {
     public int Health;
     public int AttackPower;
-    public int TravelDistance;
+    public float Speed;
+    public float Rotation;
+
 }
 
 // Taking information about a unit without instantiating the unit prefab
@@ -27,9 +28,5 @@ public class ScriptableUnitBase : ScriptableObject
     public Stats BaseStats => _stats;
 
     // game
-    public Player Prefab;
-
-    // menu
-    public string Description;
-    public Sprite MenuSprite;
+    public GameObject Prefab;
 }

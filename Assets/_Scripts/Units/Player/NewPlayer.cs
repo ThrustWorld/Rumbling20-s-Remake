@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewPlayer : UnitBase
+public class Player : UnitBase
 {
-    [SerializeField] float _speed = 5f; // sub
-    Rigidbody rb;
-
+    [SerializeField] ScriptablePlayer data;
     [SerializeField] float _value;
+    
+    Rigidbody rb;
     float x;
     // Start is called before the first frame update
     void Start()
@@ -24,6 +24,7 @@ public class NewPlayer : UnitBase
         Movement();
     }
 
+
     void FixedUpdate()
     {
          if(GameManager.Instance.State != GameState.Flow)
@@ -35,7 +36,7 @@ public class NewPlayer : UnitBase
     {
         if(Input.GetKeyDown(KeyCode.A))
         {
-             if(x == -_value)
+            if(x == -_value)
                 return;
             x += - _value;
             Rotation(true);
@@ -66,7 +67,7 @@ public class NewPlayer : UnitBase
 
     void UpdateRBPosition()
     {
-        rb.MovePosition(Vector3.Lerp(new Vector3(rb.position.x,rb.position.y,rb.position.z),new Vector3(x,rb.position.y,rb.position.z), Time.deltaTime * 5f));
+        rb.MovePosition(Vector3.Lerp(new Vector3(rb.position.x,rb.position.y,rb.position.z),new Vector3(x,rb.position.y,rb.position.z), Time.deltaTime * data.BaseStats.Speed));
         rb.AddForce(0,0,0.1F,ForceMode.Force);
     }
 }
