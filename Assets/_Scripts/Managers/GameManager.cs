@@ -8,9 +8,8 @@ using System;
 public enum GameState
 {
     Starting = 0,
-    SpawningObstacles = 1,
-    Flow = 2,
-    Lose = 3,
+    Flow = 1,
+    Lose = 2,
 }
 
 public class GameManager : Singleton<GameManager>{
@@ -24,16 +23,13 @@ public class GameManager : Singleton<GameManager>{
 
     public void ChangeState(GameState newState)
     {
-        OnBeforeStateChanged?.Invoke(newState);
+        OnBeforeStateChanged?.Invoke(newState); // do something before the change
 
         State = newState;
         switch(newState)
         {
             case GameState.Starting:
                 HandleStarting();
-                break;
-            case GameState.SpawningObstacles:
-                HandleSpawningObstacles();
                 break;
             case GameState.Flow:
                 HandleFlow();
@@ -45,7 +41,7 @@ public class GameManager : Singleton<GameManager>{
                 throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
         }
 
-        OnAfterStateChanged?.Invoke(newState);
+        OnAfterStateChanged?.Invoke(newState); // do something after the change
 
         Debug.Log($"New state: {newState}");
     }
@@ -54,18 +50,12 @@ public class GameManager : Singleton<GameManager>{
     {
         //Setup
         LevelGenerator.Instance.Initialize();
-        ChangeState(GameState.SpawningObstacles);
-    }
-
-    private void HandleSpawningObstacles()
-    {
-        //Spawn Enemies
         ChangeState(GameState.Flow);
     }
-
+    
     private void HandleFlow()
     {
-        // Flow of the game => Update
+        // Flow of the game => Check all the Update() methods
     }
     private void HandleLose()
     {
