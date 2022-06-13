@@ -312,6 +312,8 @@ MonoBehaviour:
   _spawner: {fileID: 1385775211}
   _origin: {x: 0, y: 0, z: 0}
   _spawnedTiles: 5
+  _camera: {fileID: 432616883}
+  _offSet: {x: 0, y: 0, z: 1.8}
 --- !u!4 &747699687
 Transform:
   m_ObjectHideFlags: 0

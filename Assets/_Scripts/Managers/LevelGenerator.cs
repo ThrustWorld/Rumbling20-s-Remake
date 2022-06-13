@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class LevelGenerator : Singleton<LevelGenerator>
 {
-    [SerializeField] private GameObject _groundTile;
+    [SerializeField] private GameObject _groundTile; // prefab
     [SerializeField] Transform _spawner;
     [SerializeField] Vector3 _origin;
-    [SerializeField] int _spawnedTiles;
-   
+    [SerializeField] int _spawnedTiles; // max chunks
+    [SerializeField] Camera _camera;
+    [SerializeField] Vector3 _offSet;
+
     private Vector3 spawnPosition;
+    private float distance;
     private List<GameObject> tiles;
-    // Start is called before the first frame update
+
+    void Start()
+    {
+        distance = 1f;
+    }
+    
     public void Initialize()
     {
         tiles = new List<GameObject>();
@@ -22,26 +30,32 @@ public class LevelGenerator : Singleton<LevelGenerator>
         }
     }
 
-    // Update is called once per frame
-    public void Update()
+    void Update()
     {
         if(GameManager.Instance.State != GameState.Flow)
             return;
-
-        if(Input.GetKeyDown(KeyCode.T))
-            SpawnGroundTile();
+        
+        CheckChunksPosition();
     }
 
     void SpawnGroundTile()
     {
+        // Spawn a chunk and add it to the list
         GameObject tmp = Instantiate(_groundTile, spawnPosition + _origin, Quaternion.identity,_spawner);
-        spawnPosition = spawnPosition + new Vector3(0,0,1.8f);
+        spawnPosition = spawnPosition + _offSet;
         tiles.Add(tmp);
-        
-        if(tiles.Count > _spawnedTiles + 1)
+    }
+
+    void CheckChunksPosition()
+    {
+        for (int i = 0; i < tiles.Count; i++)
         {
-            Destroy(tiles[0]);
-            tiles.RemoveAt(0);
+            // If we passed the first chunk, we put the first chunk after the last
+            if(_camera.transform.position.z > tiles[i].transform.position.z + distance)
+            {
+                tiles[i].transform.position = spawnPosition + _origin;
+                spawnPosition = spawnPosition + _offSet; // update the spawn to the last chunk position
+            }
         }
     }
 }

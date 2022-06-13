@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : UnitBase
+public class PlayerController : Singleton<PlayerController>
 {
     [SerializeField] ScriptablePlayer data; // Player stats
     [SerializeField] float _value;

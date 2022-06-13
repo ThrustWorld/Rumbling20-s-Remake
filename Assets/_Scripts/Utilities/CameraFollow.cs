@@ -12,6 +12,4 @@ public class CameraFollow : Singleton<CameraFollow>
         // Camera follows the player based on his position + offSet
         transform.position = _player.transform.position + _offSet;
     }
-
-    
 }
