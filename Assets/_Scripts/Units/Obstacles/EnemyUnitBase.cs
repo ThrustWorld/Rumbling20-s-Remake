@@ -4,4 +4,14 @@ public class ObstacleUnitBase : UnitBase
     {
 
     }
+
+    public virtual void Movement(float speed)
+    {
+
+    }
+
+    public virtual void Rotation(float rotationSpeed)
+    {
+        
+    }
 }
