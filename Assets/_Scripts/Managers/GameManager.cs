@@ -50,6 +50,7 @@ public class GameManager : Singleton<GameManager>{
     {
         //Setup
         LevelGenerator.Instance.Initialize();
+        SpawnManager.Instance.Initialize();
         ChangeState(GameState.Flow);
     }
     

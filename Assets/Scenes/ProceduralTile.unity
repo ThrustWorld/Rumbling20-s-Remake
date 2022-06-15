@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.13034657, g: 0.094851784, b: 0.12500986, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -182,6 +182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levelGenerator: {fileID: 747699686}
   _spawner: {fileID: 705338260}
+  _camera: {fileID: 432616883}
   _obstacles:
   - {fileID: 11400000, guid: 926616b5c4e834141a7afe2920177c80, type: 2}
   - {fileID: 11400000, guid: 87fe5f5a53729ec40bd83306643afd3e, type: 2}
@@ -190,6 +191,9 @@ MonoBehaviour:
   - -0.07
   - 0
   - 0.07
+  maxCars: 4
+  maxHoles: 4
+  maxPowerUps: 4
 --- !u!4 &323240233
 Transform:
   m_ObjectHideFlags: 0
@@ -202,7 +206,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &432616881
 GameObject:
@@ -312,7 +316,7 @@ GameObject:
   m_Component:
   - component: {fileID: 705338260}
   m_Layer: 0
-  m_Name: EnemySpawner
+  m_Name: ObstacleSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -409,7 +413,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1153789740
 GameObject:
@@ -439,7 +443,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1321476356
 GameObject:
