@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
-//A static class for general helpful methods
+
+
+//A static class where to put general helpful methods
 
 public static class Helpers
 {

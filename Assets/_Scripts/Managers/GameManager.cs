@@ -61,7 +61,5 @@ public class GameManager : Singleton<GameManager>{
     private void HandleLose()
     {
        // Do something if you lose 
-
-
     }
 }

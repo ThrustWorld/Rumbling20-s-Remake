@@ -180,6 +180,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b2e7bbd67fd94a43841fce57384ae16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpawnTime: 5
+  SpawnRate: 2
   _levelGenerator: {fileID: 747699686}
   _spawner: {fileID: 705338260}
   _camera: {fileID: 432616883}
@@ -191,6 +193,7 @@ MonoBehaviour:
   - -0.07
   - 0
   - 0.07
+  _offSet: {x: 0, y: 0, z: 1}
   maxCars: 4
   maxHoles: 4
   maxPowerUps: 4
@@ -397,7 +400,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _groundTile: {fileID: 4057168496252345835, guid: 3b62422459c44074fa94bed6546f0cde, type: 3}
   _spawner: {fileID: 1385775211}
-  _origin: {x: 0, y: 0, z: 0}
   _spawnedTiles: 5
   _camera: {fileID: 432616883}
   _offSet: {x: 0, y: 0, z: 1.8}
@@ -601,7 +603,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 0.8773585, g: 0.44455037, b: 0.18623178, a: 1}
-  m_Intensity: 0.2
+  m_Intensity: 0.35
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208

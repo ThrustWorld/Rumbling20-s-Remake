@@ -17,6 +17,6 @@ MonoBehaviour:
     Health: 0
     AttackPower: 1
     Speed: 0
-    Rotation: 5
+    Rotation: 130
   Prefab: {fileID: 6561241130008208989, guid: 77bbad731d28bbb42a6811ed7c56131b, type: 3}
   Type: 2

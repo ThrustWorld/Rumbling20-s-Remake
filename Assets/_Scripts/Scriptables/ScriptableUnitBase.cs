@@ -1,6 +1,9 @@
 using System;
 using UnityEngine;
 
+
+// datas in common between my units(Player and obstacles)
+
 [Serializable]
 public enum Faction
 {
@@ -8,7 +11,7 @@ public enum Faction
     Obstacles = 1
 }
 
-// Easily editable
+
 [Serializable]
 public struct Stats
 {
@@ -16,7 +19,7 @@ public struct Stats
     public int AttackPower;
     public float Speed;
     public float Rotation;
-
+    
 }
 
 // Taking information about a unit without instantiating the unit prefab

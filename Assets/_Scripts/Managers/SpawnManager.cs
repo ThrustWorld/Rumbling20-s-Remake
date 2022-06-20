@@ -4,38 +4,44 @@ using UnityEngine;
 
 public class SpawnManager : Singleton<SpawnManager>
 {
+    public int SpawnTime; // first spawn
+    public int SpawnRate; // amount of the time after the first spawn
+    
     [SerializeField] LevelGenerator _levelGenerator;
     [SerializeField] Transform _spawner;
     [SerializeField] Camera _camera;
-    [SerializeField] List<ScriptableObstacles> _obstacles;
-    [SerializeField] float[] X;
-    [SerializeField] int maxCars;
-    [SerializeField] int maxHoles;
-    [SerializeField] int maxPowerUps;
+    [SerializeField] List<ScriptableObstacles> _obstacles; // obstacle type
+    [SerializeField] float[] X; // random X pos
+    [SerializeField] Vector3 _offSet;
+    [SerializeField] int maxCars; // limit number of cars
+    [SerializeField] int maxHoles; // limit number of holes
+    [SerializeField] int maxPowerUps; // limit number of powerups
 
     List<GameObject> obstacles;
     Vector3 spawnerPos;
-    int maxObstacles;
+    int maxObstacles; // tot obstacles
     
     void Start()
     {
         maxObstacles = maxCars + maxHoles + maxPowerUps;
-        spawnerPos = _levelGenerator.SpawnPosition;
-        transform.position = spawnerPos;
-        InvokeRepeating("Spawn",8,5);
+        spawnerPos = _levelGenerator.SpawnPosition; // obstacle spawner equals to the last level chunk pos
+        transform.position = spawnerPos; // update pos
+        InvokeRepeating("Spawn",SpawnTime,SpawnRate); // spawning obstacles randomly during the game 
     }
 
     public void Initialize()
     {
+        // pooling setup
         obstacles = new List<GameObject>();
         for (int i = 0; i < maxObstacles; i++)
         {
-            AddObstacle();
+            AddObstacle(); // pooling system
         }
     }
 
     void AddObstacle()
     {
+        // initialize n obstacles foreach type
         int randomObstacle = Random.Range(0,_obstacles.Count);
         if(_obstacles[randomObstacle].Type == ObstacleType.Car && maxCars > 0)
         {
@@ -58,7 +64,7 @@ public class SpawnManager : Singleton<SpawnManager>
             go.SetActive(false);
             maxPowerUps--;
         }
-        else if(maxCars != 0 || maxHoles != 0 || maxPowerUps != 0)
+        else if(maxCars != 0 || maxHoles != 0 || maxPowerUps != 0) // the inizialization continues if we didn't create the maximum obstacles foreach type
         {
             maxObstacles++;
         }
@@ -80,22 +86,23 @@ public class SpawnManager : Singleton<SpawnManager>
 
         for (int i = 0; i < obstacles.Count; i++)
         {
-            if(!obstacles[i].activeInHierarchy && obstacles[i].tag == obstacles[randomObstacle].tag)
+            if(!obstacles[i].activeInHierarchy && obstacles[i].tag == obstacles[randomObstacle].tag) // we search one of the obstacles of the list equal to the randomObstacle type
             {
-                obstacles[i].transform.position = pos;
+                // obstacle activation
+                obstacles[i].transform.position = pos; 
                 obstacles[i].SetActive(true);
                 break;
             }
             else
             {
-                continue;
+                continue; // research if we are not finding it
             }
         }
     }
     public void UpdateSpawnerPosition()
     {
-        spawnerPos = _levelGenerator.SpawnPosition;
-        transform.position = spawnerPos - new Vector3(0,0,1f);
+        spawnerPos = _levelGenerator.SpawnPosition; // obstacle spawner equals to the last level chunk pos
+        transform.position = spawnerPos - _offSet;
     }
 
 
@@ -105,7 +112,7 @@ public class SpawnManager : Singleton<SpawnManager>
         {
             if(obstacles[i].activeInHierarchy)
             {
-                if(_camera.transform.position.z > obstacles[i].transform.position.z)
+                if(_camera.transform.position.z > obstacles[i].transform.position.z) // if the obstacle is out of the screen, it becomes inactive
                 {
                     obstacles[i].SetActive(false);
                 }

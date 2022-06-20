@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hole : MonoBehaviour
+// class for my obstacle type "Hole"
+public class Hole : ObstacleUnitBase
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void OnTriggerEnter(Collider other)
     {
-        
+        if(other.tag == "Player")
+        {
+            Damage(1);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Damage(int dmg)
     {
-        
+        Debug.Log("Hole dmg: " + dmg);
     }
 }

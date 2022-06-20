@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerUp : MonoBehaviour
+
+// class for my obstacle type "PowerUp"
+public class PowerUp : ObstacleUnitBase
 {
-    // Start is called before the first frame update
+    public override void Rotation(float rotationSpeed)
+    {
+       transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
+    }
     void Start()
     {
         
@@ -13,6 +18,22 @@ public class PowerUp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(GameManager.Instance.State != GameState.Flow)
+            return;
+        Rotation(ScriptableObstacle.BaseStats.Rotation);
+    }
+
+    public override void Damage(int dmg)
+    {
+        Debug.Log("PowerUp dmg: " + dmg);
+    }
+
+    public override void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            gameObject.SetActive(false);
+            Damage(1);
+        }
     }
 }
