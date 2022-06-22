@@ -4,19 +4,32 @@ using UnityEngine;
 
 public class PlayerController : Singleton<PlayerController>
 {
+    public float Speed { get; set; }
+    
     [SerializeField] ScriptablePlayer data; // Player stats
     [SerializeField] float _value; // X pos amount
     [SerializeField] Animator _animatorController;
     
     float x;
+    
     float cooldown;
     float delay;
+
+    float delaySpeed;
+    float cooldownSpeed;
+
+    int minSpeed;
+    int maxSpeed;
     // Start is called before the first frame update
     void Start()
     {
+        minSpeed = 1;
+        maxSpeed = 2;
+        Speed = Mathf.Clamp(data.BaseStats.Speed, minSpeed, maxSpeed);
         x = 0f;
         cooldown = 0.4f;
         delay = cooldown; // first input has no cooldown
+        cooldownSpeed = 2f;
     }
 
     // Update is called once per frame
@@ -25,6 +38,7 @@ public class PlayerController : Singleton<PlayerController>
         if(GameManager.Instance.State != GameState.Flow) // Functions are called only if we are in a specific GameState
             return;
         Movement();
+        UpdateSpeed();
     }
 
     void Movement()
@@ -58,6 +72,17 @@ public class PlayerController : Singleton<PlayerController>
         UpdatePosition();
     }
 
+    void UpdateSpeed()
+    {
+        delaySpeed += Time.deltaTime;
+        if(delaySpeed > cooldownSpeed)
+        {
+            Speed += 0.05f;
+            delaySpeed = 0f;
+        }
+        Speed = Mathf.Clamp(Speed, minSpeed, maxSpeed);
+    }
+
     void Rotation(bool left)
     {
         if(left)
@@ -76,7 +101,7 @@ public class PlayerController : Singleton<PlayerController>
     void UpdatePosition()
     {
         // Automatic forward translation
-        transform.Translate(Vector3.forward * Time.deltaTime * data.BaseStats.Speed);
+        transform.Translate(Vector3.forward * Time.deltaTime * Speed);
         // Update horizontal position based on player input
         transform.position = Vector3.Lerp(new Vector3(transform.position.x,transform.position.y,transform.position.z),new Vector3(x,transform.position.y,transform.position.z),data.BaseStats.Rotation * Time.deltaTime);
     }
