@@ -1,12 +1,32 @@
 using UnityEngine;
 
+public interface ISaveable // Saving/Loading
+{
+    void Save(SaveSystem data);
+    void Load(SaveSystem data);
+}
+
+[System.Serializable]
 public class SaveSystem : Singleton<SaveSystem>
 {
-    public void SaveToJSON()
+    // Data 
+    public int HighScore;
+    public int Resolution;
+    public int Quality;
+    public int TextureQuality;
+    public float MainVolume;
+    public bool Fullscreen;
+
+
+    public string ToJson()
     {
-        OptionSystem.Instance.SetResolution(OptionsManager.Instance.ResolutionsDropDown, OptionsManager.Instance.ResolutionsDropDown.value);
-        OptionSystem.Instance.SetFullscreen(OptionsManager.Instance.FullscreenToggle,OptionsManager.Instance.FullscreenToggle.isOn);
-        OptionSystem.Instance.SetQuality(OptionsManager.Instance.QualityDropDown,OptionsManager.Instance.QualityDropDown.value);
-        OptionSystem.Instance.SetTextureQuality(OptionsManager.Instance.QualityTextureDropDown,OptionsManager.Instance.QualityTextureDropDown.value);
+        // Data converted to Json
+        return JsonUtility.ToJson(this);
+    }
+
+    public void LoadFromJson(string json)
+    {
+        // Taking data from the .json
+        JsonUtility.FromJsonOverwrite(json,this);
     }
 }

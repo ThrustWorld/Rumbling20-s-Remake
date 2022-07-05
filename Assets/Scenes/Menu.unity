@@ -771,7 +771,7 @@ PrefabInstance:
       objectReference: {fileID: 738611237}
     - target: {fileID: 2510286527960274487, guid: 2c755499ea6e8d1449fe76e4aade4747, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Save
+      value: SaveSettings
       objectReference: {fileID: 0}
     - target: {fileID: 2510286527960274487, guid: 2c755499ea6e8d1449fe76e4aade4747, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -1379,7 +1379,7 @@ GameObject:
   - component: {fileID: 280407977}
   - component: {fileID: 280407978}
   m_Layer: 0
-  m_Name: Slider
+  m_Name: MainSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1451,8 +1451,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 939969161}
   m_HandleRect: {fileID: 1185135830}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -80
+  m_MaxValue: 20
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -3474,8 +3474,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ResolutionsDropDown: {fileID: 1608991114}
   QualityDropDown: {fileID: 1495381582}
-  QualityTextureDropDown: {fileID: 1664327958}
+  TextureQualityDropDown: {fileID: 1664327958}
   FullscreenToggle: {fileID: 1135733847}
+  MainSlider: {fileID: 280407978}
+  MainMixer: {fileID: 24300002, guid: ea32c25d4d390da4bb60fa5459a1b7c2, type: 2}
 --- !u!4 &738611238
 Transform:
   m_ObjectHideFlags: 0

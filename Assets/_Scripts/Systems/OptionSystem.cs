@@ -3,70 +3,65 @@ using System.Collections.Generic;
 
 public class OptionSystem : Singleton<OptionSystem>
 {
-    Resolution[] resolutions;
+    Resolution[] resolutions; 
     public void GetResolutions(List<string> resolutionsList, TMPro.TMP_Dropdown dropDown)
     {
         int currentResolution = default;
 
         resolutionsList = new List<string>();
 
-        dropDown.ClearOptions();
+        dropDown.ClearOptions(); // Empty
 
-        resolutions = Screen.resolutions;
+        resolutions = Screen.resolutions;// All supported resolutions
         for (int i = 0; i < this.resolutions.Length; i++)
         {
-            string resolution = resolutions[i].width + " x " + resolutions[i].height + " " + this.resolutions[i].refreshRate + "Hz";
-            resolutionsList.Add(resolution);
+            string resolution = resolutions[i].width + " x " + resolutions[i].height + " " + this.resolutions[i].refreshRate + "Hz"; // Taking resolution data individually
+            resolutionsList.Add(resolution); // Add each supported resolution
 
-            if(resolutions[i].width == Screen.width && resolutions[i].height == Screen.height)
+            if(resolutions[i].width == Screen.width && resolutions[i].height == Screen.height) // Check the screen resolution
             {
                 currentResolution = i;
             }
         }
 
-        dropDown.AddOptions(resolutionsList);
-        dropDown.value = currentResolution;
+        dropDown.AddOptions(resolutionsList); // Add the resolutions to the dropDown list
+        dropDown.value = currentResolution; // Main resolution
         dropDown.RefreshShownValue();
     }
 
     public void SetResolution(TMPro.TMP_Dropdown dropDown, int index)
     {
-        index = GetResolution(dropDown);
-        Resolution currentResolution = resolutions[index];
-        Screen.SetResolution(currentResolution.width,currentResolution.height,Screen.fullScreen);
+        index = GetIndex(dropDown); // Resolution based on the dropDown menu value
+        Resolution currentResolution = resolutions[index];  
+        Screen.SetResolution(currentResolution.width,currentResolution.height,Screen.fullScreen); // Apply resolution
     }
     
-    public void SetFullscreen(UnityEngine.UI.Toggle toggle, bool isFullscreen)
-    {
-        isFullscreen = GetFullscreen(toggle);
-        Screen.fullScreen = isFullscreen;
-    }
 
     public void SetTextureQuality(TMPro.TMP_Dropdown dropDown, int index)
     {
-        index = GetTextureQuality(dropDown);
-        QualitySettings.masterTextureLimit = index;
+        index = GetIndex(dropDown); // Texture quality based on the dropDown menu value
+        QualitySettings.masterTextureLimit = index; // Apply texture quality
     }
 
     public void SetQuality(TMPro.TMP_Dropdown dropDown, int index)
     {
-        index = GetQuality(dropDown);
-        QualitySettings.SetQualityLevel(index);
+        index = GetIndex(dropDown); // Quality based on the dropDown menu value
+        QualitySettings.SetQualityLevel(index); // Apply quality
     }
-
-    public int GetResolution(TMPro.TMP_Dropdown dropDown)
+    
+    public void SetFullscreen(UnityEngine.UI.Toggle toggle, bool isFullscreen)
     {
-        int index = dropDown.value; 
-        return index;
+        isFullscreen = GetFullscreen(toggle); // Fullscreen based on the toggle value
+        Screen.fullScreen = isFullscreen; // Apply fullscreen
     }
 
-    public int GetTextureQuality(TMPro.TMP_Dropdown dropDown)
+    public void SetMixerVolume(UnityEngine.Audio.AudioMixerGroup mixer,UnityEngine.UI.Slider slider, float value)
     {
-        int index = dropDown.value; 
-        return index;
+        value = GetVolume(slider); // Volume based on the slider value
+        slider.value = value;
+        mixer.audioMixer.SetFloat("Main Volume", slider.value); // Apply mixer volume
     }
-
-    public int GetQuality(TMPro.TMP_Dropdown dropDown)
+    public int GetIndex(TMPro.TMP_Dropdown dropDown)
     {
         int index = dropDown.value; 
         return index;
@@ -75,5 +70,11 @@ public class OptionSystem : Singleton<OptionSystem>
     {
         bool isFullscreen = toggle.isOn;
         return isFullscreen;
+    }
+
+    public float GetVolume(UnityEngine.UI.Slider slider)
+    {
+        float value = slider.value;
+        return value;
     }
 }
