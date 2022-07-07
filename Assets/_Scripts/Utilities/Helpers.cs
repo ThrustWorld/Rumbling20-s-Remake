@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System;
 
-//A static class where to put general helpful methods
+// A static class where to put general helpful methods
 
 public static class Helpers
 {

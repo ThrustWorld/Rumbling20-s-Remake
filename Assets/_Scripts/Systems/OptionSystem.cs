@@ -29,52 +29,30 @@ public class OptionSystem : Singleton<OptionSystem>
         dropDown.RefreshShownValue();
     }
 
-    public void SetResolution(TMPro.TMP_Dropdown dropDown, int index)
+    public void SetResolution(int index)
     {
-        index = GetIndex(dropDown); // Resolution based on the dropDown menu value
         Resolution currentResolution = resolutions[index];  
         Screen.SetResolution(currentResolution.width,currentResolution.height,Screen.fullScreen); // Apply resolution
     }
     
 
-    public void SetTextureQuality(TMPro.TMP_Dropdown dropDown, int index)
+    public void SetTextureQuality(int index)
     {
-        index = GetIndex(dropDown); // Texture quality based on the dropDown menu value
         QualitySettings.masterTextureLimit = index; // Apply texture quality
     }
 
-    public void SetQuality(TMPro.TMP_Dropdown dropDown, int index)
+    public void SetQuality(int index)
     {
-        index = GetIndex(dropDown); // Quality based on the dropDown menu value
         QualitySettings.SetQualityLevel(index); // Apply quality
     }
     
-    public void SetFullscreen(UnityEngine.UI.Toggle toggle, bool isFullscreen)
+    public void SetFullscreen(bool isFullscreen)
     {
-        isFullscreen = GetFullscreen(toggle); // Fullscreen based on the toggle value
         Screen.fullScreen = isFullscreen; // Apply fullscreen
     }
 
-    public void SetMixerVolume(UnityEngine.Audio.AudioMixerGroup mixer,UnityEngine.UI.Slider slider, float value)
+    public void SetMixerVolume(UnityEngine.Audio.AudioMixerGroup mixer,string name, float value)
     {
-        value = GetVolume(slider); // Volume based on the slider value
-        slider.value = value;
-        mixer.audioMixer.SetFloat("Main Volume", slider.value); // Apply mixer volume
-    }
-    public int GetIndex(TMPro.TMP_Dropdown dropDown)
-    {
-        int index = dropDown.value; 
-        return index;
-    }
-    public bool GetFullscreen(UnityEngine.UI.Toggle toggle)
-    {
-        bool isFullscreen = toggle.isOn;
-        return isFullscreen;
-    }
-
-    public float GetVolume(UnityEngine.UI.Slider slider)
-    {
-        float value = slider.value;
-        return value;
+        mixer.audioMixer.SetFloat(name, value); // Apply mixer volume
     }
 }
