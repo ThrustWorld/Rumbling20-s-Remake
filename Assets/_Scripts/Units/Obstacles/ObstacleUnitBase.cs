@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-// Base class for my obstacles and what they do in common
+// Base class for my obstacles and what they have in common
 public class ObstacleUnitBase : MonoBehaviour
 {
     public ScriptableObstacles ScriptableObstacle; // datas about obstacles

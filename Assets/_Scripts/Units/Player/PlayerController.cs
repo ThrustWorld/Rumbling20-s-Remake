@@ -5,10 +5,12 @@ using UnityEngine;
 public class PlayerController : Singleton<PlayerController>
 {
     public float Speed { get; set; }
-    
+    public int Health { get; set; }
+
     [SerializeField] ScriptablePlayer data; // Player stats
     [SerializeField] float _value; // X pos amount
     [SerializeField] Animator _animatorController;
+    [SerializeField] GameObject[] HPs;
     
     float x;
     
@@ -26,6 +28,7 @@ public class PlayerController : Singleton<PlayerController>
         minSpeed = 1;
         maxSpeed = 2;
         Speed = Mathf.Clamp(data.BaseStats.Speed, minSpeed, maxSpeed);
+        Health = data.BaseStats.Health;
         x = 0f;
         cooldown = 0.4f;
         delay = cooldown; // first input has no cooldown
@@ -104,5 +107,38 @@ public class PlayerController : Singleton<PlayerController>
         transform.Translate(Vector3.forward * Time.deltaTime * Speed);
         // Update horizontal position based on player input
         transform.position = Vector3.Lerp(new Vector3(transform.position.x,transform.position.y,transform.position.z),new Vector3(x,transform.position.y,transform.position.z),data.BaseStats.Rotation * Time.deltaTime);
+    }
+
+    public void CheckHealth(int value)
+    {
+        switch(value)
+        {
+            case 3:
+                foreach (var item in HPs)
+                {
+                    item.SetActive(true);
+                }
+                break;
+            case 2:
+                HPs[0].SetActive(true);
+                HPs[1].SetActive(true);
+                HPs[2].SetActive(false);
+                break; 
+            case 1:
+                HPs[0].SetActive(true);
+                HPs[1].SetActive(false);
+                HPs[2].SetActive(false);
+                break;
+            case 0:
+                HPs[0].SetActive(false);
+                HPs[1].SetActive(false);
+                HPs[2].SetActive(false);
+                // EventSystem.Instance.GameOver()
+                break; 
+            default:
+                Health = 3;
+                Debug.LogError($"Failed because your health is already to the maximum of {Health}");
+                break;
+        }
     }
 }

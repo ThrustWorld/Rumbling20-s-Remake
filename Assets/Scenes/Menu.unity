@@ -808,12 +808,13 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\nFirst of all, thanks for downloading and playing \"Rumbling 20's\";
     I really appreciate that! The game is based on a simple endless runner experience
-    where you will deal with three types of obstacles:\n\n1- Car\n\n\n\n\nBecareful,
+    where you will deal with 3 types of obstacles:\n\n1- Car\n\n\n\n\nBecareful,
     it is a game over if you hit the cars!\n\n\n2- Hole\n\n\n\n\nIt slows your speed
-    and it reduces your health and your score.\n\n\n3- Gear\n\n\n\n\nIt's a power
-    up; if you have less than 3 health points, you will receive one of them.\n\n\nFurthermore,
-    if you lose all your three health points, it's a game over.\nLast but not least,
-    I hope you'll enjoy playing this simple game \U0001F604 "
+    and it reduces your health by 1.\n\n\n3- Gear\n\n\n\n\nIt's a power up; if you
+    have less than 3 health points, you will receive one of them.\n\n\nFurthermore,
+    if you lose all your 3 health points, placed in the upper right corner, it's
+    a game over.\nLast but not least, I hope you'll enjoy playing this simple game
+    \U0001F604 "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1381,7 +1382,7 @@ RectTransform:
   - {fileID: 484800237}
   - {fileID: 580818538}
   m_Father: {fileID: 409283276}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

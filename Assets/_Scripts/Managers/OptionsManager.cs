@@ -37,10 +37,9 @@ public class OptionsManager : Singleton<OptionsManager>, ISaveable
         SaveSystem data = new SaveSystem();
         data.Settings = new Settings();
         Save(data);
-        if(Helpers.WriteToFile("Settings.json", data.ToJson(data.Settings))) // Check if the file has been
+        if(Helpers.WriteToFile("Settings.json", data.ToJson(data.Settings))) // Check if the file has been saved
         {
-            Debug.Log("Save successful");
-            LoadSettings(); // Apply the data
+            LoadSettings(); // Apply the saved data
         }
     }
 
@@ -64,7 +63,6 @@ public class OptionsManager : Singleton<OptionsManager>, ISaveable
             data.Settings = new Settings();
             data.LoadFromJson(json,data.Settings);
             Load(data); // Load the saved datas from the file
-            Debug.Log("Load Complete");
         }
     }
     

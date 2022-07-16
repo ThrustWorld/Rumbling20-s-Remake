@@ -18,6 +18,7 @@ public class Hole : ObstacleUnitBase
 
     public override void Damage(int dmg)
     {
-        Debug.Log("Hole dmg: " + dmg);
+        PlayerController.Instance.Health -= dmg;
+        PlayerController.Instance.CheckHealth(PlayerController.Instance.Health);
     }
 }

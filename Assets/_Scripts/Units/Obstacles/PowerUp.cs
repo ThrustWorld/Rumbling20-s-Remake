@@ -25,7 +25,8 @@ public class PowerUp : ObstacleUnitBase
 
     public override void Damage(int dmg)
     {
-        Debug.Log("PowerUp dmg: " + dmg);
+        PlayerController.Instance.Health += dmg;
+        PlayerController.Instance.CheckHealth(PlayerController.Instance.Health);
     }
 
     public override void OnTriggerEnter(Collider other)
