@@ -859,10 +859,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 482868089}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eafbc67704200774994cf7322bf81368, type: 3}
+  m_Script: {fileID: 11500000, guid: b70aaa2eee5662b479c08f9e0c3e7823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameCanvas: {fileID: 1796799064}
+  GameMenuCanvas: {fileID: 1796799064}
 --- !u!4 &482868091
 Transform:
   m_ObjectHideFlags: 0
