@@ -10,7 +10,7 @@ public class ObstacleUnitBase : MonoBehaviour
     
     public virtual void Damage(int dmg)
     {
-
+        
     }
 
     public virtual void Movement(float speed)

@@ -26,7 +26,7 @@ public class PlayerController : Singleton<PlayerController>
     void Start()
     {
         minSpeed = 1;
-        maxSpeed = 2;
+        maxSpeed = 10;
         Speed = Mathf.Clamp(data.BaseStats.Speed, minSpeed, maxSpeed);
         Health = data.BaseStats.Health;
         x = 0f;
@@ -133,7 +133,8 @@ public class PlayerController : Singleton<PlayerController>
                 HPs[0].SetActive(false);
                 HPs[1].SetActive(false);
                 HPs[2].SetActive(false);
-                // EventSystem.Instance.GameOver()
+                ScoreManager.Instance.SaveScore();
+                GameManager.Instance.ChangeState(GameState.Lose);
                 break; 
             default:
                 Health = 3;

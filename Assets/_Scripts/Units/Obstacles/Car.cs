@@ -34,6 +34,7 @@ public class Car : ObstacleUnitBase
     
     public override void Damage(int dmg)
     {
-        Debug.Log("GameOver!");
+        ScoreManager.Instance.SaveScore();
+        GameManager.Instance.ChangeState(GameState.Lose);
     }
 }

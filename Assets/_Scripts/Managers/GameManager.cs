@@ -60,6 +60,7 @@ public class GameManager : Singleton<GameManager>{
     }
     private void HandleLose()
     {
-       // Do something if you lose 
+       // Do something if you lose
+       StartCoroutine(FadeManager.Instance.Fade(0));
     }
 }

@@ -10,6 +10,7 @@ public interface ISaveable // Saving/Loading
 public class PlayerScore
 {
     public float HighScore;
+    public float FinalScore;
 }
 
 [System.Serializable]

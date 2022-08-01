@@ -10,10 +10,6 @@ public class PowerUp : ObstacleUnitBase
     {
        transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
     }
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -34,7 +30,7 @@ public class PowerUp : ObstacleUnitBase
         if(other.tag == "Player")
         {
             gameObject.SetActive(false);
-            Damage(1);
+            Damage(ScriptableObstacle.BaseStats.AttackPower);
         }
     }
 }

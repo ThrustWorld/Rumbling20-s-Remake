@@ -11,7 +11,7 @@ public class Hole : ObstacleUnitBase
     {
         if(other.tag == "Player")
         {
-            Damage(1);
+            Damage(ScriptableObstacle.BaseStats.AttackPower);
             PlayerController.Instance.Speed /= slow;
         }
     }
