@@ -3,17 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-// class for my obstacle type "Car"
+// Class for my obstacle type "Car"
 public class Car : ObstacleUnitBase
 {
     public override void Movement(float speed)
     {
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 
     // Update is called once per frame
@@ -28,13 +23,15 @@ public class Car : ObstacleUnitBase
     {
         if(collision.collider.tag == "Player")
         {
-            Damage(0);
+            // Apply damage after the collision
+            Damage(ScriptableObstacle.BaseStats.AttackPower);
         }
     }
     
     public override void Damage(int dmg)
     {
-        ScoreManager.Instance.SaveScore();
-        GameManager.Instance.ChangeState(GameState.Lose);
+        // Update player's health 
+        PlayerController.Instance.Health -= dmg;
+        PlayerController.Instance.CheckHealth(PlayerController.Instance.Health);
     }
 }

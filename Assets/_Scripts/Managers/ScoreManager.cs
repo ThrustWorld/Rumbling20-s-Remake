@@ -4,9 +4,9 @@ using UnityEngine;
 using TMPro;
 public class ScoreManager : Singleton<ScoreManager>, ISaveable
 {
-    public TextMeshProUGUI TextScore;
-    public TextMeshProUGUI TextHighscore;
-    public TextMeshProUGUI FinalScore;
+    public TextMeshProUGUI TextScore; // Current score during the game
+    public TextMeshProUGUI TextHighscore; // The best score
+    public TextMeshProUGUI FinalScore; // Gameover score
 
     float currentScore;
     bool done = false;
@@ -22,35 +22,36 @@ public class ScoreManager : Singleton<ScoreManager>, ISaveable
     {
         if(GameManager.Instance.State == GameState.Flow)
         {
-            SetScore();
+            SetScore(); // Update score during the game
         }
         
         if(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "GameOver" && !done)
         {
-            LoadScore();
+            LoadScore(); // Score after the gameover
             done = true;
         }
     }
 
     void SetScore()
     {
-        currentScore = PlayerController.Instance.gameObject.transform.position.z;
+        currentScore = PlayerController.Instance.gameObject.transform.position.z; // Based on the distance crossed by the player
         TextScore.text = currentScore.ToString("0.0") + "m"; // Round off to 1 decimal place and apply the score to the UI
     }
 
     void SetHighscore(float value)
     {
-        TextHighscore.text = value.ToString("0.0") + "m"; 
+        TextHighscore.text = value.ToString("0.0") + "m"; // Round off to 1 decimal place and apply the score to the UI
     }
 
     void SetFinalscore(float value)
     {
-        FinalScore.text = value.ToString("0.0") + "m";
+        FinalScore.text = value.ToString("0.0") + "m"; // Round off to 1 decimal place and apply the score to the UI
     }
     
     public void Save(SaveSystem data)
     {
-        if(currentScore > data.Score.HighScore)
+        // Update the highscore if the current score is better
+        if(currentScore > data.Score.HighScore) 
         {
             data.Score.HighScore = currentScore;
         }
@@ -60,6 +61,7 @@ public class ScoreManager : Singleton<ScoreManager>, ISaveable
 
     public void Load(SaveSystem data)
     {
+        // Load the last score before the gameover and the highscore before start playing again
         if(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "GameOver")
         {
             SetFinalscore(data.Score.FinalScore);

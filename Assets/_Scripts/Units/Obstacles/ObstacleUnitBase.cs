@@ -6,7 +6,7 @@ using UnityEngine;
 // Base class for my obstacles and what they have in common
 public class ObstacleUnitBase : MonoBehaviour
 {
-    public ScriptableObstacles ScriptableObstacle; // datas about obstacles
+    public ScriptableObstacles ScriptableObstacle; // Data about obstacles
     
     public virtual void Damage(int dmg)
     {

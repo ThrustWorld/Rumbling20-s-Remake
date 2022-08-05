@@ -6,9 +6,9 @@ public class LevelGenerator : Singleton<LevelGenerator>
 {
     public Vector3 SpawnPosition {get; private set; }
     
-    [SerializeField] private GameObject _groundTile; // prefab
+    [SerializeField] private GameObject _groundTile; // Prefab
     [SerializeField] Transform _spawner;
-    [SerializeField] int _spawnedTiles; // max chunks
+    [SerializeField] int _spawnedTiles; // Max chunks
     [SerializeField] Camera _camera;
     [SerializeField] Vector3 _offSet;
 
@@ -54,8 +54,8 @@ public class LevelGenerator : Singleton<LevelGenerator>
             if(_camera.transform.position.z > tiles[i].transform.position.z + distance)
             {
                 tiles[i].transform.position = SpawnPosition;
-                SpawnPosition = SpawnPosition + _offSet; // update the spawn to the last chunk position
-                SpawnManager.Instance.UpdateSpawnerPosition(); // update the spawner position of the obstacle with the SpawnPosition of the last chunk
+                SpawnPosition = SpawnPosition + _offSet; // Update the spawn to the last chunk position
+                SpawnManager.Instance.UpdateSpawnerPosition(); // Update the spawner position of the obstacle with the SpawnPosition of the last chunk
             }
         }
     }

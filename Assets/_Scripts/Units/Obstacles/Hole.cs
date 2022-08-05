@@ -11,6 +11,7 @@ public class Hole : ObstacleUnitBase
     {
         if(other.tag == "Player")
         {
+            // Apply damage and slow to the player after the collision
             Damage(ScriptableObstacle.BaseStats.AttackPower);
             PlayerController.Instance.Speed /= slow;
         }
@@ -18,6 +19,7 @@ public class Hole : ObstacleUnitBase
 
     public override void Damage(int dmg)
     {
+        // Update player's health
         PlayerController.Instance.Health -= dmg;
         PlayerController.Instance.CheckHealth(PlayerController.Instance.Health);
     }

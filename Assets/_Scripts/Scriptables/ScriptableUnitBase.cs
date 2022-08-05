@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 
-// datas in common between my units(Player and obstacles)
+// Data in common between my units(Player and obstacles)
 
 [Serializable]
 public enum Faction

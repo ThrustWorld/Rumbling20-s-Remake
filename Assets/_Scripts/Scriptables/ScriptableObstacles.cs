@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-// data container about obstacles
+// Data container about obstacles
 
 [Serializable]
 public enum ObstacleType

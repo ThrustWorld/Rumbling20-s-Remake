@@ -7,7 +7,7 @@ public class FadeManager : Singleton<FadeManager>
 
     bool done = false;
 
-    public IEnumerator Fade(float alpha)
+    public IEnumerator FadeIn(float alpha)
     {
         for (float i = alpha; i < 1f; i += 0.01f)
         {
@@ -24,9 +24,9 @@ public class FadeManager : Singleton<FadeManager>
 
     void Update()
     {
-         if(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "GameOver" && !done)
+        if(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "GameOver" && !done)
         {
-            StartCoroutine(Fade(0));
+            StartCoroutine(FadeIn(0));
             done = true;
         }
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 // basic audio system
 public class AudioSystem : Singleton<AudioSystem>
 {
-    [SerializeField] private AudioSource _musicSource; // background music
+    [SerializeField] private AudioSource _musicSource; // Background music
     [SerializeField] private AudioSource _soundsSource; 
 
     public void PlayMusic(AudioClip clip)

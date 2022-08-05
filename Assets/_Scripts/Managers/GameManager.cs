@@ -18,12 +18,12 @@ public class GameManager : Singleton<GameManager>{
 
     public GameState State {get; private set;}
 
-    // game starts with the first state
+    // Game starts with the first state
     void Start() => ChangeState(GameState.Starting);
 
     public void ChangeState(GameState newState)
     {
-        OnBeforeStateChanged?.Invoke(newState); // do something before the change
+        OnBeforeStateChanged?.Invoke(newState); // Do something before the change
 
         State = newState;
         switch(newState)
@@ -41,7 +41,7 @@ public class GameManager : Singleton<GameManager>{
                 throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
         }
 
-        OnAfterStateChanged?.Invoke(newState); // do something after the change
+        OnAfterStateChanged?.Invoke(newState); // Do something after the change
 
         Debug.Log($"New state: {newState}");
     }
@@ -61,6 +61,6 @@ public class GameManager : Singleton<GameManager>{
     private void HandleLose()
     {
        // Do something if you lose
-       StartCoroutine(FadeManager.Instance.Fade(0));
+       StartCoroutine(FadeManager.Instance.FadeIn(0));
     }
 }

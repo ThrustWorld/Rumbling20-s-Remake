@@ -31,7 +31,7 @@ public class PlayerController : Singleton<PlayerController>
         Health = data.BaseStats.Health;
         x = 0f;
         cooldown = 0.4f;
-        delay = cooldown; // first input has no cooldown
+        delay = cooldown; // First input has no cooldown
         cooldownSpeed = 2f;
     }
 
@@ -68,7 +68,7 @@ public class PlayerController : Singleton<PlayerController>
                     return;
                 // Right movement = positive value
                 x += _value;
-                Rotation(false); // false = right
+                Rotation(false); // False = right
                 delay = 0f;
             }
         }
@@ -111,6 +111,7 @@ public class PlayerController : Singleton<PlayerController>
 
     public void CheckHealth(int value)
     {
+        // Value = player's health
         switch(value)
         {
             case 3:
@@ -119,27 +120,32 @@ public class PlayerController : Singleton<PlayerController>
                     item.SetActive(true);
                 }
                 break;
-            case 2:
+            case 2: // - 1 Hp
                 HPs[0].SetActive(true);
                 HPs[1].SetActive(true);
                 HPs[2].SetActive(false);
                 break; 
-            case 1:
+            case 1: // - 2 Hp
                 HPs[0].SetActive(true);
                 HPs[1].SetActive(false);
                 HPs[2].SetActive(false);
                 break;
-            case 0:
+            case 0: // Gameover
                 HPs[0].SetActive(false);
                 HPs[1].SetActive(false);
                 HPs[2].SetActive(false);
-                ScoreManager.Instance.SaveScore();
-                GameManager.Instance.ChangeState(GameState.Lose);
+                GameOver();
                 break; 
-            default:
+            default: // If you go over 3 Hps
                 Health = 3;
                 Debug.LogError($"Failed because your health is already to the maximum of {Health}");
                 break;
         }
+    }
+
+    void GameOver()
+    {
+        ScoreManager.Instance.SaveScore();
+        GameManager.Instance.ChangeState(GameState.Lose);
     }
 }

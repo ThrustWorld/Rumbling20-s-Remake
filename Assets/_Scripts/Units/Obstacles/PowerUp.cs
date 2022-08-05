@@ -21,6 +21,7 @@ public class PowerUp : ObstacleUnitBase
 
     public override void Damage(int dmg)
     {
+        // Update player's health
         PlayerController.Instance.Health += dmg;
         PlayerController.Instance.CheckHealth(PlayerController.Instance.Health);
     }
@@ -29,6 +30,7 @@ public class PowerUp : ObstacleUnitBase
     {
         if(other.tag == "Player")
         {
+            // Apply positive damage and disable powerup after the collision
             gameObject.SetActive(false);
             Damage(ScriptableObstacle.BaseStats.AttackPower);
         }

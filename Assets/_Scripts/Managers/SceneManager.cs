@@ -15,7 +15,7 @@ public class SceneManager : Singleton<SceneManager>
            == "Game")
         {
             GameMenuCanvas.SetActive(true);
-            Time.timeScale = 0f;
+            Time.timeScale = 0f; // Pause
             active = true;
         }
     }
@@ -35,7 +35,7 @@ public class SceneManager : Singleton<SceneManager>
     {
         GameMenuCanvas.SetActive(false);
         active = false;
-        Time.timeScale = 1f;
+        Time.timeScale = 1f; // Unpause
     }
 
     public void Menu()
