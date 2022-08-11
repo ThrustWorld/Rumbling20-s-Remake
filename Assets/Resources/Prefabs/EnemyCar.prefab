@@ -20,6 +20,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7038782235420215268, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
+      propertyPath: MaxDistance
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: -7038782235420215268, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a321c54cb2643c64b9be22083bf1879e, type: 3}
     - target: {fileID: 721663679785959148, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
       propertyPath: m_Size.y
       value: 0.049829625
@@ -91,6 +99,14 @@ PrefabInstance:
     - target: {fileID: 7493161517311833699, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
       propertyPath: m_Mass
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7493161517311833699, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
+      propertyPath: m_Constraints
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 7605759252066414263, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7797634528938488512, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
       propertyPath: m_Name

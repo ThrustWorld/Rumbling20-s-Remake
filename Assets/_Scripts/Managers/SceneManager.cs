@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SceneManager : Singleton<SceneManager>
 {
-    public GameObject GameMenuCanvas;
+    [SerializeField] GameObject _GameMenuCanvas;
 
     bool active = false;
     
@@ -14,7 +15,7 @@ public class SceneManager : Singleton<SceneManager>
            UnityEngine.SceneManagement.SceneManager.GetActiveScene().name 
            == "Game")
         {
-            GameMenuCanvas.SetActive(true);
+            _GameMenuCanvas.SetActive(true);
             Time.timeScale = 0f; // Pause
             active = true;
         }
@@ -33,7 +34,7 @@ public class SceneManager : Singleton<SceneManager>
 
      public void Resume()
     {
-        GameMenuCanvas.SetActive(false);
+        _GameMenuCanvas.SetActive(false);
         active = false;
         Time.timeScale = 1f; // Unpause
     }

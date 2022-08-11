@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Audio;
 public class PlayerController : Singleton<PlayerController>
 {
     public float Speed { get; set; }
@@ -11,7 +11,9 @@ public class PlayerController : Singleton<PlayerController>
     [SerializeField] float _value; // X pos amount
     [SerializeField] Animator _animatorController;
     [SerializeField] GameObject[] HPs;
-    
+    [SerializeField] AudioSource _Source;
+    [SerializeField] AudioClip[] _Clip;
+
     float x;
     
     float cooldown;
