@@ -17,6 +17,7 @@ public class FadeManager : Singleton<FadeManager>
         
         if(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "Game")
         {
+            yield return new WaitForSeconds(1f);
             SceneManager.Instance.LoadScene("GameOver");
         }
     }

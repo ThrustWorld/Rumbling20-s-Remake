@@ -14,4 +14,14 @@ public class AudioSystem : Singleton<AudioSystem>
     {
         source.PlayOneShot(clip);
     }
+
+    public void Pause(AudioSource source)
+    {
+        source.Pause();
+    }
+
+    public void Unpause(AudioSource source)
+    {
+        source.UnPause();
+    }
 }

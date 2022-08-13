@@ -18,6 +18,7 @@ public class SceneManager : Singleton<SceneManager>
             _GameMenuCanvas.SetActive(true);
             Time.timeScale = 0f; // Pause
             active = true;
+            AudioSystem.Instance.Pause(PlayerController.Instance.Source);
         }
     }
 
@@ -37,6 +38,7 @@ public class SceneManager : Singleton<SceneManager>
         _GameMenuCanvas.SetActive(false);
         active = false;
         Time.timeScale = 1f; // Unpause
+        AudioSystem.Instance.Unpause(PlayerController.Instance.Source);
     }
 
     public void Menu()

@@ -12,6 +12,11 @@ public class Hole : ObstacleUnitBase
         if(other.tag == "Player")
         {
             // Apply damage and slow to the player after the collision
+            if(PlayerController.Instance.Health == 1)
+            {
+                AudioSystem.Instance.PlaySound(PlayerController.Instance.Source,PlayerController.Instance.Clips[5]);
+            }
+            AudioSystem.Instance.PlayOneShot(PlayerController.Instance.Source,PlayerController.Instance.Clips[2]);
             Damage(ScriptableObstacle.BaseStats.AttackPower);
             PlayerController.Instance.Speed /= slow;
         }

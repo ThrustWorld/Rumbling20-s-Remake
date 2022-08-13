@@ -31,8 +31,9 @@ public class PowerUp : ObstacleUnitBase
         if(other.tag == "Player")
         {
             // Apply positive damage and disable powerup after the collision
-            gameObject.SetActive(false);
+            AudioSystem.Instance.PlayOneShot(PlayerController.Instance.Source,PlayerController.Instance.Clips[1]);
             Damage(ScriptableObstacle.BaseStats.AttackPower);
+            gameObject.SetActive(false);
         }
     }
 }

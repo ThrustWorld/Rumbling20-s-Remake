@@ -4911,12 +4911,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f381651e160a0444e8aaa0d0a3098890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: 1ebf6a7c35ef07043a133ad3c8dec255, type: 2}
-  _value: 0.08
-  _animatorController: {fileID: 0}
-  HPs: []
-  _Source: {fileID: 0}
-  _Clip: []
+  Source: {fileID: -7038782235420215268}
+  Clips:
+  - {fileID: 8300000, guid: dbd63bf8e2826314aa19bdc70b506461, type: 3}
+  - {fileID: 8300000, guid: 534d5b474cc75cf48ba70fe830ccf357, type: 3}
+  _Data: {fileID: 11400000, guid: 1ebf6a7c35ef07043a133ad3c8dec255, type: 2}
+  _Value: 0.08
+  _AnimatorController: {fileID: 0}
+  _Particles: {fileID: 7605759252066414263}
+  _Hps:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!82 &-7038782235420215268
 AudioSource:
   m_ObjectHideFlags: 0

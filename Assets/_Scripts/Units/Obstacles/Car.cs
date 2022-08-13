@@ -24,6 +24,8 @@ public class Car : ObstacleUnitBase
         if(collision.collider.tag == "Player")
         {
             // Apply damage after the collision
+            AudioSystem.Instance.PlaySound(PlayerController.Instance.Source,PlayerController.Instance.Clips[3]);
+            if(PlayerController.Instance.Source.isPlaying)
             Damage(ScriptableObstacle.BaseStats.AttackPower);
         }
     }

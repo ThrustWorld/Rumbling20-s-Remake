@@ -2074,6 +2074,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7797634528938488512, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
   m_PrefabInstance: {fileID: 2111134470}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &1608051977 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: -7038782235420215268, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
+  m_PrefabInstance: {fileID: 2111134470}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &1608051981
 Animator:
   serializedVersion: 3
@@ -3091,8 +3096,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5556439928713015910, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
+      propertyPath: _Source
+      value: 
+      objectReference: {fileID: 1608051977}
+    - target: {fileID: 5556439928713015910, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
       propertyPath: HPs.Array.size
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5556439928713015910, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
+      propertyPath: Clips.Array.size
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5556439928713015910, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
       propertyPath: HPs.Array.data[0]
@@ -3107,12 +3120,48 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 555223992}
     - target: {fileID: 5556439928713015910, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
+      propertyPath: _Hps.Array.data[0]
+      value: 
+      objectReference: {fileID: 662517937}
+    - target: {fileID: 5556439928713015910, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
+      propertyPath: _Hps.Array.data[1]
+      value: 
+      objectReference: {fileID: 702757234}
+    - target: {fileID: 5556439928713015910, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
+      propertyPath: _Hps.Array.data[2]
+      value: 
+      objectReference: {fileID: 555223992}
+    - target: {fileID: 5556439928713015910, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
+      propertyPath: Clips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: fa41133512d019a458a7689efd8f0a8e, type: 3}
+    - target: {fileID: 5556439928713015910, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
+      propertyPath: Clips.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: f9bc3af9c564f2446a131a0aa3f6ccd1, type: 3}
+    - target: {fileID: 5556439928713015910, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
+      propertyPath: Clips.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 16324e78e30b01c4d8f9f72dce83e03b, type: 3}
+    - target: {fileID: 5556439928713015910, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
+      propertyPath: Clips.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: 30d3dfb14d1397b42a07c252336f364c, type: 3}
+    - target: {fileID: 5556439928713015910, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
+      propertyPath: _AnimatorController
+      value: 
+      objectReference: {fileID: 1608051981}
+    - target: {fileID: 5556439928713015910, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
       propertyPath: _animatorController
       value: 
       objectReference: {fileID: 1608051981}
     - target: {fileID: 6656751114549554268, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.04760003
+      objectReference: {fileID: 0}
+    - target: {fileID: 7605759252066414263, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7797634528938488512, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
       propertyPath: m_Name
