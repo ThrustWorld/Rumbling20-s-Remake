@@ -14,9 +14,9 @@ public class Hole : ObstacleUnitBase
             // Apply damage and slow to the player after the collision
             if(PlayerController.Instance.Health == 1)
             {
-                AudioSystem.Instance.PlaySound(PlayerController.Instance.Source,PlayerController.Instance.Clips[5]);
+                AudioSystem.Instance.PlaySound(PlayerController.Instance.Source,PlayerController.Instance.Clips[5]); // deep hole sound
             }
-            AudioSystem.Instance.PlayOneShot(PlayerController.Instance.Source,PlayerController.Instance.Clips[2]);
+            AudioSystem.Instance.PlayOneShot(PlayerController.Instance.Source,PlayerController.Instance.Clips[2]); // hole sound
             Damage(ScriptableObstacle.BaseStats.AttackPower);
             PlayerController.Instance.Speed /= slow;
         }

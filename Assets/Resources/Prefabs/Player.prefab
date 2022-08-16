@@ -4915,11 +4915,15 @@ MonoBehaviour:
   Clips:
   - {fileID: 8300000, guid: dbd63bf8e2826314aa19bdc70b506461, type: 3}
   - {fileID: 8300000, guid: 534d5b474cc75cf48ba70fe830ccf357, type: 3}
-  _Data: {fileID: 11400000, guid: 1ebf6a7c35ef07043a133ad3c8dec255, type: 2}
-  _Value: 0.08
-  _AnimatorController: {fileID: 0}
-  _Particles: {fileID: 7605759252066414263}
-  _Hps:
+  - {fileID: 8300000, guid: fa41133512d019a458a7689efd8f0a8e, type: 3}
+  - {fileID: 8300000, guid: f9bc3af9c564f2446a131a0aa3f6ccd1, type: 3}
+  - {fileID: 8300000, guid: 16324e78e30b01c4d8f9f72dce83e03b, type: 3}
+  - {fileID: 8300000, guid: 30d3dfb14d1397b42a07c252336f364c, type: 3}
+  _data: {fileID: 11400000, guid: 1ebf6a7c35ef07043a133ad3c8dec255, type: 2}
+  _value: 0.08
+  _animatorController: {fileID: 0}
+  _particles: {fileID: 7605759252066414263}
+  _hps:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

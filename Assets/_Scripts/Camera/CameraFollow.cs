@@ -5,11 +5,11 @@ using UnityEngine;
 public class CameraFollow : Singleton<CameraFollow>
 {
     [SerializeField] GameObject _player;
-    [SerializeField] Vector3 _offSet; // Constant distance from the Player
+    [SerializeField] Vector3 _offset; // Constant distance from the Player
     // Update is called once per frame
     void LateUpdate()
     {
         // Camera follows the player based on his position + offSet
-        transform.position = _player.transform.position + _offSet;
+        transform.position = _player.transform.position + _offset;
     }
 }

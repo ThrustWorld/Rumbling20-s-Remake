@@ -579,14 +579,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 926616b5c4e834141a7afe2920177c80, type: 2}
   - {fileID: 11400000, guid: 87fe5f5a53729ec40bd83306643afd3e, type: 2}
   - {fileID: 11400000, guid: 48e7888de44307a42ae258bbdafce6e3, type: 2}
-  X:
+  _x:
   - -0.07
   - 0
   - 0.07
   _offSet: {x: 0, y: 0, z: 1}
-  maxCars: 4
-  maxHoles: 4
-  maxPowerUps: 4
+  _maxCars: 4
+  _maxHoles: 4
+  _maxPowerUps: 4
 --- !u!4 &323240233
 Transform:
   m_ObjectHideFlags: 0
@@ -907,7 +907,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 1608051976}
-  _offSet: {x: 0, y: 0.2, z: -0.35}
+  _offset: {x: 0, y: 0.2, z: -0.35}
 --- !u!1 &482868089
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,7 +937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b70aaa2eee5662b479c08f9e0c3e7823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _GameMenuCanvas: {fileID: 1796799064}
+  _gameMenuCanvas: {fileID: 1796799064}
 --- !u!4 &482868091
 Transform:
   m_ObjectHideFlags: 0
@@ -3104,10 +3104,6 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5556439928713015910, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
-      propertyPath: Clips.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5556439928713015910, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
       propertyPath: HPs.Array.data[0]
       value: 
       objectReference: {fileID: 662517937}
@@ -3132,21 +3128,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 555223992}
     - target: {fileID: 5556439928713015910, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
-      propertyPath: Clips.Array.data[2]
+      propertyPath: _hps.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: fa41133512d019a458a7689efd8f0a8e, type: 3}
+      objectReference: {fileID: 662517937}
     - target: {fileID: 5556439928713015910, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
-      propertyPath: Clips.Array.data[3]
+      propertyPath: _hps.Array.data[1]
       value: 
-      objectReference: {fileID: 8300000, guid: f9bc3af9c564f2446a131a0aa3f6ccd1, type: 3}
+      objectReference: {fileID: 702757234}
     - target: {fileID: 5556439928713015910, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
-      propertyPath: Clips.Array.data[4]
+      propertyPath: _hps.Array.data[2]
       value: 
-      objectReference: {fileID: 8300000, guid: 16324e78e30b01c4d8f9f72dce83e03b, type: 3}
-    - target: {fileID: 5556439928713015910, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
-      propertyPath: Clips.Array.data[5]
-      value: 
-      objectReference: {fileID: 8300000, guid: 30d3dfb14d1397b42a07c252336f364c, type: 3}
+      objectReference: {fileID: 555223992}
     - target: {fileID: 5556439928713015910, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
       propertyPath: _AnimatorController
       value: 

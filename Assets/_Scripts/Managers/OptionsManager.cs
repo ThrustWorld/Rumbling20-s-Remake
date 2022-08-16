@@ -29,6 +29,7 @@ public class OptionsManager : Singleton<OptionsManager>, ISaveable
     {
         OptionSystem.Instance.GetResolutions(resolutionsList,ResolutionsDropDown);
         UpdateUI();
+        LoadSettings();
     }
 
     public void SaveSettings()

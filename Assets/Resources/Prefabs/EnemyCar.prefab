@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 721663679785959148, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
       propertyPath: m_IsTrigger
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2060585042048439879, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
       propertyPath: m_RootOrder
@@ -99,6 +99,10 @@ PrefabInstance:
     - target: {fileID: 7493161517311833699, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
       propertyPath: m_Mass
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7493161517311833699, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7493161517311833699, guid: f70a3fe8ca8cef047a57f4bb83f3de69, type: 3}
       propertyPath: m_Constraints

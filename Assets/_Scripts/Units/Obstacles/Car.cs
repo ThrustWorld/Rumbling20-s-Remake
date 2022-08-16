@@ -19,13 +19,12 @@ public class Car : ObstacleUnitBase
         Movement(ScriptableObstacle.BaseStats.Speed);
     }
 
-    public override void OnCollisionEnter(Collision collision)
+    public override void OnTriggerEnter(Collider other)
     {
-        if(collision.collider.tag == "Player")
+        if(other.tag == "Player")
         {
             // Apply damage after the collision
-            AudioSystem.Instance.PlaySound(PlayerController.Instance.Source,PlayerController.Instance.Clips[3]);
-            if(PlayerController.Instance.Source.isPlaying)
+            AudioSystem.Instance.PlaySound(PlayerController.Instance.Source,PlayerController.Instance.Clips[3]); // car collision sound
             Damage(ScriptableObstacle.BaseStats.AttackPower);
         }
     }

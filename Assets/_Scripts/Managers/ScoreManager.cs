@@ -9,6 +9,7 @@ public class ScoreManager : Singleton<ScoreManager>, ISaveable
     public TextMeshProUGUI FinalScore; // Gameover score
 
     float currentScore;
+    float highScore;
     bool done = false;
 
     private void Start()
@@ -41,6 +42,7 @@ public class ScoreManager : Singleton<ScoreManager>, ISaveable
     void SetHighscore(float value)
     {
         TextHighscore.text = value.ToString("0.0") + "m"; // Round off to 1 decimal place and apply the score to the UI
+        highScore = value;
     }
 
     void SetFinalscore(float value)
@@ -51,9 +53,13 @@ public class ScoreManager : Singleton<ScoreManager>, ISaveable
     public void Save(SaveSystem data)
     {
         // Update the highscore if the current score is better
-        if(currentScore > data.Score.HighScore) 
+        if(currentScore > highScore) 
         {
             data.Score.HighScore = currentScore;
+        }
+        else
+        {
+            data.Score.HighScore = highScore;
         }
 
         data.Score.FinalScore = currentScore;

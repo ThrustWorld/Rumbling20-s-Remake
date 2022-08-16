@@ -5,7 +5,7 @@ using UnityEngine.Audio;
 
 public class SceneManager : Singleton<SceneManager>
 {
-    [SerializeField] GameObject _GameMenuCanvas;
+    [SerializeField] GameObject _gameMenuCanvas;
 
     bool active = false;
     
@@ -15,7 +15,7 @@ public class SceneManager : Singleton<SceneManager>
            UnityEngine.SceneManagement.SceneManager.GetActiveScene().name 
            == "Game")
         {
-            _GameMenuCanvas.SetActive(true);
+            _gameMenuCanvas.SetActive(true);
             Time.timeScale = 0f; // Pause
             active = true;
             AudioSystem.Instance.Pause(PlayerController.Instance.Source);
@@ -35,7 +35,7 @@ public class SceneManager : Singleton<SceneManager>
 
      public void Resume()
     {
-        _GameMenuCanvas.SetActive(false);
+        _gameMenuCanvas.SetActive(false);
         active = false;
         Time.timeScale = 1f; // Unpause
         AudioSystem.Instance.Unpause(PlayerController.Instance.Source);

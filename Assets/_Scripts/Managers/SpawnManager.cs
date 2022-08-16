@@ -11,11 +11,11 @@ public class SpawnManager : Singleton<SpawnManager>
     [SerializeField] Transform _spawner;
     [SerializeField] Camera _camera;
     [SerializeField] List<ScriptableObstacles> _obstacles; // Obstacle type
-    [SerializeField] float[] X; // Random X pos
+    [SerializeField] float[] _x; // Random X pos
     [SerializeField] Vector3 _offSet;
-    [SerializeField] int maxCars; // Limit number of cars
-    [SerializeField] int maxHoles; // Limit number of holes
-    [SerializeField] int maxPowerUps; // Limit number of powerups
+    [SerializeField] int _maxCars; // Limit number of cars
+    [SerializeField] int _maxHoles; // Limit number of holes
+    [SerializeField] int _maxPowerUps; // Limit number of powerups
 
     List<GameObject> obstacles;
     Vector3 spawnerPos;
@@ -23,7 +23,7 @@ public class SpawnManager : Singleton<SpawnManager>
     
     void Start()
     {
-        maxObstacles = maxCars + maxHoles + maxPowerUps;
+        maxObstacles = _maxCars + _maxHoles + _maxPowerUps;
         spawnerPos = _levelGenerator.SpawnPosition; // Obstacle spawner equals to the last level chunk pos
         transform.position = spawnerPos; // Update pos
         InvokeRepeating("Spawn",SpawnTime,SpawnRate); // Spawning obstacles randomly during the game 
@@ -43,28 +43,28 @@ public class SpawnManager : Singleton<SpawnManager>
     {
         // Initialize n obstacles foreach type
         int randomObstacle = Random.Range(0,_obstacles.Count);
-        if(_obstacles[randomObstacle].Type == ObstacleType.Car && maxCars > 0)
+        if(_obstacles[randomObstacle].Type == ObstacleType.Car && _maxCars > 0)
         {
             GameObject go = Instantiate(_obstacles[randomObstacle].Prefab, transform.position, Quaternion.Euler(0,180,0), _spawner); // Add them in the list
             obstacles.Add(go);
             go.SetActive(false);
-            maxCars--;
+            _maxCars--;
         }
-        else if(_obstacles[randomObstacle].Type == ObstacleType.Hole && maxHoles > 0)
+        else if(_obstacles[randomObstacle].Type == ObstacleType.Hole && _maxHoles > 0)
         {
             GameObject go = Instantiate(_obstacles[randomObstacle].Prefab, transform.position, Quaternion.Euler(0,180,0), _spawner); // Add them in the list
             obstacles.Add(go);
             go.SetActive(false);
-            maxHoles--;
+            _maxHoles--;
         }
-        else if(_obstacles[randomObstacle].Type == ObstacleType.PowerUp && maxPowerUps > 0)
+        else if(_obstacles[randomObstacle].Type == ObstacleType.PowerUp && _maxPowerUps > 0)
         {
             GameObject go = Instantiate(_obstacles[randomObstacle].Prefab, transform.position, Quaternion.Euler(0,180,0), _spawner); // Add them in the list
             obstacles.Add(go);
             go.SetActive(false);
-            maxPowerUps--;
+            _maxPowerUps--;
         }
-        else if(maxCars != 0 || maxHoles != 0 || maxPowerUps != 0) // The inizialization continues if we didn't create the maximum obstacles foreach type
+        else if(_maxCars != 0 || _maxHoles != 0 || _maxPowerUps != 0) // The inizialization continues if we didn't create the maximum obstacles foreach type
         {
             maxObstacles++;
         }
@@ -80,9 +80,9 @@ public class SpawnManager : Singleton<SpawnManager>
 
     void Spawn()
     {
-        int randomX = Random.Range(0,X.Length); // Random position taken from X[]
+        int randomX = Random.Range(0,_x.Length); // Random position taken from X[]
         int randomObstacle = Random.Range(0,obstacles.Count); // Random obstacle taken from _obstacles list
-        Vector3 pos = new Vector3(X[randomX],transform.position.y,transform.position.z); // Obstacle updated position
+        Vector3 pos = new Vector3(_x[randomX],transform.position.y,transform.position.z); // Obstacle updated position
 
         for (int i = 0; i < obstacles.Count; i++)
         {
