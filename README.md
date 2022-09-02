@@ -7,9 +7,9 @@ In the updated version, I decided to refactor the entire old project to improve 
 Above all, I worked on: </br>
 - A complete menu section(Play, Settings, Credits, Quit,...); </br>
 - A score system influenced by obstacles and distance; </br>
-- Fix audio system with a valuable one; </br>
-- Add a saving sytem; </br>
-- Implement a better pooling system. </br>
+- Fixing audio system with a valuable one; </br>
+- Adding a saving sytem; </br>
+- Implementing a better pooling system. </br>
 
 If you prefer, you can directly find the build on [Itch.io](https://thrustworld.itch.io/rumbling-20s-remake) too.
 
